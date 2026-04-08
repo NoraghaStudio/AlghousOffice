@@ -30,7 +30,7 @@
         <a href="#projects">مشاريعنا</a>
         <a href="#team">فريق العمل</a>
         <a href="#locations">فروعنا</a>
-        <a href="#contact" class="nav-cta">تواصل معنا</a>
+        <a href="#contact" class="nav-cta">‎ ‎ ‎ ‎ تواصل معنا‎ ‎ ‎ ‎ </a>
       </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
         <span></span><span></span><span></span>
@@ -300,58 +300,211 @@
         <p>نماذج من أعمالنا ومشاريعنا الهندسية المتميزة</p>
       </div>
       <div class="projects-grid">
-        <div class="project-card" onclick="openLightbox(this)">
-          <img src="images/projects/khatiri-hotel-1.jpg" alt="فندق سمير الخطيري" loading="lazy">
+        <!-- PROJECT: شركة تشييد الأولى -->
+        <div class="project-card" data-project="tashyeed" onclick="openProjectLightbox('tashyeed')">
+          <div class="card-slides">
+            <div class="project-slide video-slide active" data-type="video"
+              data-src="images/projects/tashyeed-video.mp4">
+              <video src="images/projects/tashyeed-video.mp4" muted loop autoplay playsinline
+                poster="images/projects/tashyeed-1.jpg"></video>
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/tashyeed-1.jpg">
+              <img src="images/projects/tashyeed-1.jpg" alt="شركة تشييد الأولى - 1" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/tashyeed-2.jpg">
+              <img src="images/projects/tashyeed-2.jpg" alt="شركة تشييد الأولى - 2" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/tashyeed-3.jpg">
+              <img src="images/projects/tashyeed-3.jpg" alt="شركة تشييد الأولى - 3" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/tashyeed-4.jpg">
+              <img src="images/projects/tashyeed-4.jpg" alt="شركة تشييد الأولى - 4" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/tashyeed-5.jpg">
+              <img src="images/projects/tashyeed-5.jpg" alt="شركة تشييد الأولى - 5" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/tashyeed-6.jpg">
+              <img src="images/projects/tashyeed-6.jpg" alt="شركة تشييد الأولى - 6" loading="lazy">
+            </div>
+          </div>
+          <div class="slider-nav">
+            <button class="slider-btn next" onclick="moveSlide(this, 1)">❮</button>
+            <button class="slider-btn prev" onclick="moveSlide(this, -1)">❯</button>
+          </div>
           <div class="project-overlay-always">
-            <h4>فندق سمير الخطيري</h4><span>مشروع قيد التنفيذ</span>
+            <h4>شركة تشييد الأولى</h4><span>فيديو + 6 صور</span>
           </div>
         </div>
-        <div class="project-card" onclick="openLightbox(this)">
-          <img src="images/projects/mosque-1.jpg" alt="مسجد حمد" loading="lazy">
+
+        <!-- PROJECT: فندق سمير الخطيري -->
+        <div class="project-card" data-project="khatiri" onclick="openProjectLightbox('khatiri')">
+          <div class="card-slides">
+            <div class="project-slide active" data-type="image" data-src="images/projects/khatiri-hotel-1.jpg">
+              <img src="images/projects/khatiri-hotel-1.jpg" alt="فندق سمير الخطيري - 1" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/khatiri-hotel-2.jpg">
+              <img src="images/projects/khatiri-hotel-2.jpg" alt="فندق سمير الخطيري - 2" loading="lazy">
+            </div>
+          </div>
+          <div class="slider-nav">
+            <button class="slider-btn next" onclick="moveSlide(this, 1)">❮</button>
+            <button class="slider-btn prev" onclick="moveSlide(this, -1)">❯</button>
+          </div>
           <div class="project-overlay-always">
-            <h4>مسجد حمد</h4><span>مشروع قيد التنفيذ</span>
+            <h4>فندق سمير الخطيري</h4><span>صورتان</span>
           </div>
         </div>
-        <div class="project-card" onclick="openLightbox(this)">
-          <img src="images/projects/sports-club-1.jpg" alt="نادي رياضي" loading="lazy">
+
+        <!-- PROJECT: مسجد حمد -->
+        <div class="project-card" data-project="mosque" onclick="openProjectLightbox('mosque')">
+          <div class="card-slides">
+            <div class="project-slide active" data-type="image" data-src="images/projects/mosque-1.jpg">
+              <img src="images/projects/mosque-1.jpg" alt="مسجد حمد - 1" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/mosque-2.jpg">
+              <img src="images/projects/mosque-2.jpg" alt="مسجد حمد - 2" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/mosque-3.jpg">
+              <img src="images/projects/mosque-3.jpg" alt="مسجد حمد - 3" loading="lazy">
+            </div>
+          </div>
+          <div class="slider-nav">
+            <button class="slider-btn next" onclick="moveSlide(this, 1)">❮</button>
+            <button class="slider-btn prev" onclick="moveSlide(this, -1)">❯</button>
+          </div>
           <div class="project-overlay-always">
-            <h4>نادي رياضي</h4><span>تصميم هندسي</span>
+            <h4>مسجد حمد</h4><span>3 صور</span>
           </div>
         </div>
-        <div class="project-card" onclick="openLightbox(this)">
-          <img src="images/projects/commercial-1.jpg" alt="مجمّع تجاري" loading="lazy">
+
+        <!-- PROJECT: نادي رياضي -->
+        <div class="project-card" data-project="sports" onclick="openProjectLightbox('sports')">
+          <div class="card-slides">
+            <div class="project-slide active" data-type="image" data-src="images/projects/sports-club-1.jpg">
+              <img src="images/projects/sports-club-1.jpg" alt="نادي رياضي - 1" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/sports-club-2.jpg">
+              <img src="images/projects/sports-club-2.jpg" alt="نادي رياضي - 2" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/sports-club-3.jpg">
+              <img src="images/projects/sports-club-3.jpg" alt="نادي رياضي - 3" loading="lazy">
+            </div>
+          </div>
+          <div class="slider-nav">
+            <button class="slider-btn next" onclick="moveSlide(this, 1)">❮</button>
+            <button class="slider-btn prev" onclick="moveSlide(this, -1)">❯</button>
+          </div>
           <div class="project-overlay-always">
-            <h4>مجمّع تجاري</h4><span>مشروع قيد التنفيذ</span>
+            <h4>نادي رياضي</h4><span>3 صور</span>
           </div>
         </div>
-        <div class="project-card" onclick="openLightbox(this)">
-          <img src="images/projects/hada-hotel-1.jpg" alt="مشروع فندق خاص" loading="lazy">
+
+        <!-- PROJECT: مجمّع تجاري -->
+        <div class="project-card" data-project="commercial" onclick="openProjectLightbox('commercial')">
+          <div class="card-slides">
+            <div class="project-slide active" data-type="image" data-src="images/projects/commercial-1.jpg">
+              <img src="images/projects/commercial-1.jpg" alt="مجمّع تجاري - 1" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/commercial-2.jpg">
+              <img src="images/projects/commercial-2.jpg" alt="مجمّع تجاري - 2" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/commercial-3.jpg">
+              <img src="images/projects/commercial-3.jpg" alt="مجمّع تجاري - 3" loading="lazy">
+            </div>
+          </div>
+          <div class="slider-nav">
+            <button class="slider-btn next" onclick="moveSlide(this, 1)">❮</button>
+            <button class="slider-btn prev" onclick="moveSlide(this, -1)">❯</button>
+          </div>
           <div class="project-overlay-always">
-            <h4>مشروع فندق خاص</h4><span>تصميم معماري</span>
+            <h4>مجمّع تجاري</h4><span>3 صور</span>
           </div>
         </div>
-        <div class="project-card" onclick="openLightbox(this)">
-          <img src="images/projects/private-hotel-1.jpg" alt="فندق خاص" loading="lazy">
+
+        <!-- PROJECT: فندق الهدا / فندق خاص -->
+        <div class="project-card" data-project="hada" onclick="openProjectLightbox('hada')">
+          <div class="card-slides">
+            <div class="project-slide active" data-type="image" data-src="images/projects/hada-hotel-1.jpg">
+              <img src="images/projects/hada-hotel-1.jpg" alt="فندق الهدا - 1" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/hada-hotel-2.jpg">
+              <img src="images/projects/hada-hotel-2.jpg" alt="فندق الهدا - 2" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/hada-hotel-3.jpg">
+              <img src="images/projects/hada-hotel-3.jpg" alt="فندق الهدا - 3" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/hada-hotel-4.jpg">
+              <img src="images/projects/hada-hotel-4.jpg" alt="فندق الهدا - 4" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/hada-hotel-5.jpg">
+              <img src="images/projects/hada-hotel-5.jpg" alt="فندق الهدا - 5" loading="lazy">
+            </div>
+          </div>
+          <div class="slider-nav">
+            <button class="slider-btn next" onclick="moveSlide(this, 1)">❮</button>
+            <button class="slider-btn prev" onclick="moveSlide(this, -1)">❯</button>
+          </div>
           <div class="project-overlay-always">
-            <h4>فندق خاص</h4><span>مشروع قيد التنفيذ</span>
+            <h4>فندق الهدا</h4><span>5 صور</span>
           </div>
         </div>
-        <div class="project-card" onclick="openLightbox(this)">
-          <img src="images/projects/tashyeed-1.jpg" alt="شركة تشييد الأولى" loading="lazy">
+
+        <!-- PROJECT: فندق خاص -->
+        <div class="project-card" data-project="private" onclick="openProjectLightbox('private')">
+          <div class="card-slides">
+            <div class="project-slide active" data-type="image" data-src="images/projects/private-hotel-1.jpg">
+              <img src="images/projects/private-hotel-1.jpg" alt="فندق خاص - 1" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/private-hotel-2.jpg">
+              <img src="images/projects/private-hotel-2.jpg" alt="فندق خاص - 2" loading="lazy">
+            </div>
+          </div>
+          <div class="slider-nav">
+            <button class="slider-btn next" onclick="moveSlide(this, 1)">❮</button>
+            <button class="slider-btn prev" onclick="moveSlide(this, -1)">❯</button>
+          </div>
           <div class="project-overlay-always">
-            <h4>شركة تشييد الأولى</h4><span>مشروع هندسي</span>
+            <h4>فندق خاص</h4><span>صورتان</span>
           </div>
         </div>
-        <div class="project-card" onclick="openLightbox(this)">
-          <img src="images/projects/khatiri-hotel-2.jpg" alt="فندق سمير الخطيري - منظور 2" loading="lazy">
-          <div class="project-overlay-always">
-            <h4>فندق سمير الخطيري</h4><span>منظور إضافي</span>
+
+        <!-- PROJECT: مشاريع متنوعة (ONGOING/OTHER) -->
+        <div class="project-card" data-project="ongoing" onclick="openProjectLightbox('ongoing')">
+          <div class="card-slides">
+            <div class="project-slide active" data-type="image" data-src="images/projects/ongoing-1.jpg">
+              <img src="images/projects/ongoing-1.jpg" alt="مشروع قيد التنفيذ - 1" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/ongoing-2.jpg">
+              <img src="images/projects/ongoing-2.jpg" alt="مشروع قيد التنفيذ - 2" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/ongoing-3.jpg">
+              <img src="images/projects/ongoing-3.jpg" alt="مشروع قيد التنفيذ - 3" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/ongoing-4.jpg">
+              <img src="images/projects/ongoing-4.jpg" alt="مشروع قيد التنفيذ - 4" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/ongoing-5.jpg">
+              <img src="images/projects/ongoing-5.jpg" alt="مشروع قيد التنفيذ - 5" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/ongoing-6.jpg">
+              <img src="images/projects/ongoing-6.jpg" alt="مشروع قيد التنفيذ - 6" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/ongoing-7.jpg">
+              <img src="images/projects/ongoing-7.jpg" alt="مشروع قيد التنفيذ - 7" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/ongoing-8.jpg">
+              <img src="images/projects/ongoing-8.jpg" alt="مشروع قيد التنفيذ - 8" loading="lazy">
+            </div>
+            <div class="project-slide" data-type="image" data-src="images/projects/ongoing-9.jpg">
+              <img src="images/projects/ongoing-9.jpg" alt="مشروع قيد التنفيذ - 9" loading="lazy">
+            </div>
           </div>
-        </div>
-        <div class="project-card" onclick="openLightbox(this)">
-          <img src="images/projects/mosque-2.jpg" alt="مسجد حمد - منظور 2" loading="lazy">
+          <div class="slider-nav">
+            <button class="slider-btn prev" onclick="moveSlide(this, -1)">❮</button>
+            <button class="slider-btn next" onclick="moveSlide(this, 1)">❯</button>
+          </div>
           <div class="project-overlay-always">
-            <h4>مسجد حمد</h4><span>منظور إضافي</span>
+            <h4>مشروعات قيد التنفيذ</h4><span>9 صور متنوعة</span>
           </div>
         </div>
       </div>
@@ -572,7 +725,12 @@
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-    <img id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav-btn next" onclick="navigateLightbox(1)">❮</button>
+    <button class="lightbox-nav-btn prev" onclick="navigateLightbox(-1)">❯</button>
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="" style="display:none">
+      <video id="lightboxVideo" src="" controls style="display:none"></video>
+    </div>
     <div class="lightbox-caption" id="lightboxCaption"></div>
   </div>
 

@@ -65,33 +65,94 @@ scrollTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// --- Lightbox ---
-function openLightbox(card) {
-  const img = card.querySelector('img');
-  const title = card.querySelector('h4');
-  const lightbox = document.getElementById('lightbox');
+// --- Project Slider (Card Level) ---
+function moveSlide(btn, dir) {
+  if (event) event.stopPropagation();
+  const card = btn.closest('.project-card');
+  const slides = card.querySelectorAll('.project-slide');
+  let activeIndex = Array.from(slides).findIndex(s => s.classList.contains('active'));
+  
+  slides[activeIndex].classList.remove('active');
+  activeIndex = (activeIndex + dir + slides.length) % slides.length;
+  slides[activeIndex].classList.add('active');
+}
+
+// --- Project Gallery (Lightbox) ---
+let currentGallery = [];
+let currentGalleryIndex = 0;
+
+function openProjectLightbox(projectId) {
+  const card = document.querySelector(`.project-card[data-project="${projectId}"]`);
+  const slides = card.querySelectorAll('.project-slide');
+  const title = card.querySelector('h4').textContent;
+  
+  currentGallery = Array.from(slides).map(s => ({
+    src: s.getAttribute('data-src'),
+    type: s.getAttribute('data-type'),
+    title: title
+  }));
+  
+  currentGalleryIndex = 0;
+  updateLightbox();
+  
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function updateLightbox() {
+  const item = currentGallery[currentGalleryIndex];
   const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxVideo = document.getElementById('lightboxVideo');
   const lightboxCaption = document.getElementById('lightboxCaption');
   
-  lightboxImg.src = img.src;
-  lightboxCaption.textContent = title ? title.textContent : '';
-  lightbox.classList.add('active');
-  document.body.style.overflow = 'hidden';
+  if (!item) return;
+
+  lightboxImg.style.display = 'none';
+  lightboxVideo.style.display = 'none';
+  lightboxVideo.pause();
+  
+  if (item.type === 'video') {
+    lightboxVideo.src = item.src;
+    lightboxVideo.style.display = 'block';
+    lightboxVideo.play();
+  } else {
+    lightboxImg.src = item.src;
+    lightboxImg.style.display = 'block';
+  }
+  
+  lightboxCaption.textContent = `${item.title} (${currentGalleryIndex + 1} / ${currentGallery.length})`;
+}
+
+function navigateLightbox(dir) {
+  if (currentGallery.length <= 1) return;
+  currentGalleryIndex = (currentGalleryIndex + dir + currentGallery.length) % currentGallery.length;
+  updateLightbox();
 }
 
 function closeLightbox() {
   const lightbox = document.getElementById('lightbox');
-  lightbox.classList.remove('active');
+  const lightboxVideo = document.getElementById('lightboxVideo');
+  if (lightboxVideo) {
+    lightboxVideo.pause();
+    lightboxVideo.src = "";
+  }
+  if (lightbox) lightbox.classList.remove('active');
   document.body.style.overflow = '';
 }
 
-document.getElementById('lightbox').addEventListener('click', (e) => {
-  if (e.target === e.currentTarget) closeLightbox();
-});
-
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') navigateLightbox(-1); // RTL
+  if (e.key === 'ArrowLeft') navigateLightbox(1);
 });
+
+// Event listener for lightbox backdrop
+const lb = document.getElementById('lightbox');
+if (lb) {
+  lb.addEventListener('click', (e) => {
+    if (e.target.id === 'lightbox' || e.target.className === 'lightbox-content') closeLightbox();
+  });
+}
 
 // --- Team Grid (dynamic render) ---
 const teamMembers = [
@@ -127,8 +188,7 @@ const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
+      entry.target.classList.add('reveal-show');
       observer.unobserve(entry.target);
     }
   });
@@ -136,9 +196,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Apply subtle fade-in to cards
 document.querySelectorAll('.service-card, .vmv-card, .value-card, .project-card, .team-card, .location-card, .contact-item').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease, border-top-color 0.3s ease';
+  el.classList.add('reveal-hidden');
   observer.observe(el);
 });
 
