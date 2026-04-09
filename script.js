@@ -154,34 +154,6 @@ if (lb) {
   });
 }
 
-// --- Team Grid (dynamic render) ---
-const teamMembers = [
-  { name: 'سمير علي محمود حسن', role: 'نائب المدير ومدير المشاريع', qual: 'بكالوريوس هندسة معمارية', grade: 'مهندس محترف' },
-  { name: 'رفعت محمد أبو الفتوح', role: 'نائب المدير التنفيذي لأعمال المساحة', qual: 'ليسانس آداب وخرائط', grade: 'أخصائي مساحة' },
-  { name: 'نايل عبد الرحمن الغوص', role: 'مدير إداري / نائب المدير التنفيذي', qual: 'إدارة أعمال', grade: 'إدارة أعمال' },
-  { name: 'محمد الهادي السويسي', role: 'مسؤول قسم الرخص والقسم المعماري', qual: 'بكالوريوس هندسة معمارية', grade: 'مهندس محترف' },
-  { name: 'موسى سليم ياسين', role: 'مهندس مدني', qual: 'بكالوريوس هندسة مدنية', grade: 'مهندس محترف' },
-  { name: 'أحمد محمد صبيح بغدادي', role: 'مهندس كهرباء', qual: 'بكالوريوس هندسة كهربائية', grade: 'مهندس محترف' },
-  { name: 'محمد سيد فهمي عبد السلام', role: 'مهندس ميكانيكا', qual: 'بكالوريوس هندسة ميكانيكية', grade: 'مهندس محترف' },
-  { name: 'حمادة نبوي عبد الفتاح المرسي', role: 'مهندس تخطيط', qual: 'بكالوريوس هندسة تخطيط عمراني', grade: 'مهندس محترف' },
-  { name: 'يحيى بيومي غريب محمد', role: 'مدير الحسابات', qual: 'بكالوريوس تجارة', grade: 'محاسب' }
-];
-
-const teamGrid = document.getElementById('teamGrid');
-const personSvg = '<svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>';
-
-teamMembers.forEach(member => {
-  const card = document.createElement('div');
-  card.className = 'team-card';
-  card.innerHTML = `
-    <div class="team-avatar">${personSvg}</div>
-    <h4>${member.name}</h4>
-    <p class="role">${member.role}</p>
-    <p class="qualification">${member.qual}</p>
-  `;
-  teamGrid.appendChild(card);
-});
-
 // --- Intersection Observer for scroll animations ---
 const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
 
@@ -195,13 +167,13 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Apply subtle fade-in to cards
-document.querySelectorAll('.service-card, .vmv-card, .value-card, .project-card, .team-card, .location-card, .contact-item').forEach(el => {
+document.querySelectorAll('.service-card, .vmv-card, .value-card, .project-card, .location-card, .contact-item').forEach(el => {
   el.classList.add('reveal-hidden');
   observer.observe(el);
 });
 
 // Staggered animation delay
-document.querySelectorAll('.services-grid, .vmv-cards, .values-grid, .projects-grid, .team-grid, .locations-grid').forEach(grid => {
+document.querySelectorAll('.services-grid, .vmv-cards, .values-grid, .projects-grid, .locations-grid').forEach(grid => {
   const children = grid.children;
   Array.from(children).forEach((child, i) => {
     child.style.transitionDelay = `${i * 0.08}s`;

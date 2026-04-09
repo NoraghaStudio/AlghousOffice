@@ -939,7 +939,7 @@ img {
   max-width: 800px;
   margin: 0 auto;
   background: var(--white);
-  padding: 40px;
+  padding: 15px;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-md);
 }
@@ -947,65 +947,6 @@ img {
 .accreditations-image img {
   width: 100%;
   height: auto;
-}
-
-/* ======================================
-   TEAM SECTION
-====================================== */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-
-.team-card {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 28px 20px;
-  text-align: center;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-}
-
-.team-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.team-avatar {
-  width: 72px;
-  height: 72px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 16px;
-}
-
-.team-avatar svg {
-  width: 32px;
-  height: 32px;
-  fill: var(--white);
-}
-
-.team-card h4 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 4px;
-}
-
-.team-card .role {
-  font-size: 0.8rem;
-  color: var(--accent);
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.team-card .qualification {
-  font-size: 0.78rem;
-  color: var(--gray);
 }
 
 /* ======================================
@@ -1562,9 +1503,7 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+
 
   .locations-grid {
     grid-template-columns: 1fr;
@@ -1708,9 +1647,7 @@ img {
   }
 
   /* Team */
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
+
 
   /* Contact */
   .contact-grid>div {
@@ -1753,4 +1690,32 @@ img {
   .about-highlights {
     grid-template-columns: 1fr;
   }
+}
+
+/* --- Plans Section Specifics --- */
+#plans .project-card {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+}
+
+#plans .card-slides {
+  height: 220px;
+  position: relative;
+}
+
+.plan-text {
+  padding: 24px;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--dark-gray);
+  border-top: 1px solid var(--light-gray);
+  background: var(--white);
+  flex-grow: 1;
+  text-align: justify;
+}
+
+#plans .project-overlay-always {
+  bottom: 0px;
 }
